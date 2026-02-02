@@ -3,16 +3,21 @@
 interface CustomButtonProps {
     title: string;
     onClick?: () => void;
+    backgroundColor?: string;
+    textColor?: string;
 }
 
 export default function CustomButton({
-    title, onClick     
+    title, 
+    onClick,
+    backgroundColor = '#8B4513',
+    textColor = '#FFFFFF'
 }: CustomButtonProps) {
     return (
         <TouchableOpacity 
         onPress={onClick}>
-            <View style={{ backgroundColor: 'brown', padding: 10, borderRadius: 5 }}>
-                <Text style={{ color: 'white', fontSize: 16 }}>{title}</Text>
+            <View style={{ backgroundColor: backgroundColor, padding: 15, borderRadius: 8 }}>
+                <Text style={{ color: textColor, fontSize: 16, fontWeight: '600' }}>{title}</Text>
             </View>
         </TouchableOpacity>
     )

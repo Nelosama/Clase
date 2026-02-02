@@ -2,6 +2,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import CustomButton from './src/Components/Custom.Button';
+import CustomContainer from './src/Components/Custom.Container';
 
 export default function App() {
   const handleOnLogin = () => {
@@ -14,22 +15,45 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>Open up App</Text>
-      <StatusBar style="auto" />
-      <CustomButton title="Login" onClick={handleOnLogin} />
-      <CustomButton title="Logout" onClick={handleOnLogout} />
-      </View>
+    <View style={styles.screenContainer}>
+      <CustomContainer style={styles.container}>
+        <Text style={styles.title}>App de Daniel Castillo</Text>
+        <StatusBar style="auto" />
+        <CustomButton 
+          title="Login" 
+          onClick={handleOnLogin}
+          backgroundColor="#2C3E50"
+          textColor="#FFFFFF"
+        />
+        <View style={styles.spacer} />
+        <CustomButton 
+          title="Salir" 
+          onClick={handleOnLogout}
+          backgroundColor="#FFFFFF"
+          textColor="#000000"
+        />
+      </CustomContainer>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screenContainer: {
     flex: 1,
-    width: '80%',
-    borderWidth: 2,
-    backgroundColor: '#c3cad8',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  container: {
+    width: '80%',
+    borderWidth: 2,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 30,
+    textAlign: 'center',
+  },
+  spacer: {
+    height: 15,
   },
 });
